@@ -1,0 +1,907 @@
+/* --- Base Reset & Core Styles --- */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* --- Global Typography Scale --- */
+.impact-text {
+    font-family: 'Impact', sans-serif;
+    text-transform: uppercase;
+}
+
+.size-lg {
+    font-size: clamp(82px, 5vw, 120px);
+    color: #e67e22;
+    margin-top: 40px;
+}
+
+.size-md {
+    font-size: clamp(40px, 8vw, 80px);
+    color: #fff;
+}
+
+.size-sm {
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* --- Fixed Scrolling Header Blur Effect --- */
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    z-index: 999;
+    pointer-events: none;
+}
+
+.top-bar {
+    background: transparent;
+    width: 100%;
+    padding: 10px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    width: 150px;
+    height: 60px;
+    position: relative;
+}
+
+.main-logo {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    height: clamp(80px, 15vw, 130px);
+    width: auto;
+    filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.9));
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+
+.main-logo:hover {
+    transform: scale(1.08);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.nav-links li a:hover,
+.nav-links li a.btn-nav-style {
+    color: #e67e22;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 3001;
+}
+
+/* --- Hero Showcase Section --- */
+#home-section {
+    margin-top: 0px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 85vh;
+    margin-top: 30px ;
+    position: relative;
+    background: #000;
+}
+
+.full-screen-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(60%);
+}
+
+.statement-tab {
+    background: #e67e22;
+    color: #fff;
+    text-align: center;
+    padding: 16px 24px;
+    max-width: 600px;
+    width: 90%;
+    margin: -35px auto 0;
+    border-radius: 50px;
+    position: relative;
+    z-index: 20;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.statement-tab p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    font-size: clamp(16px, 3vw, 22px);
+    letter-spacing: 2px;
+}
+
+/* --- Call To Action Control Center --- */
+.selection-box {
+    padding: 80px 20px 40px;
+    text-align: center;
+    background: #000;
+}
+
+.button-group {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 16px 44px;
+    border-radius: 12px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: clamp(24px, 4vw, 36px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 790;
+    display: inline-block;
+    text-align: center;
+}
+
+.parent-btn {
+    background: #ffa600;
+    color: #000;
+    text-decoration: none;
+}
+
+.rider-btn {
+    background: #fdffb9;
+    color: #000;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* --- Services Display Grid --- */
+.services-container {
+    padding: 60px 5%;
+    text-align: center;
+    background: #000;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 50px auto 0;
+    max-width: 1200px;
+}
+
+.service-item {
+    background: #111;
+    border: 1px solid #222;
+    padding: 40px 24px;
+    border-radius: 20px;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+    border-color: #e67e22;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(230, 126, 34, 0.15);
+}
+
+.service-item p {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* --- Clean Branding Minimal Footer --- */
+/* --- New 4-Column Grid Footer --- */
+/* --- Footer Logo Scaling Fixes --- */
+.footer-minimal-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.social-icon-space {
+    margin-right: 8px;
+}
+
+.foot-logo-container { 
+    display: flex;
+    justify-content: flex-start; /* Aligns left to match the reference layout */
+    align-items: center;
+    height: 50px;       /* Constrains container height */
+    width: 140px;       /* Constrains container width */
+    overflow: hidden;   /* Prevents asset bleeding */
+}
+
+.foot-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Forces image to fit perfectly inside the box without stretching */
+    object-position: left center; /* Keeps the graphic aligned with your text items */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.foot-logo:hover { 
+    transform: scale(1.04); 
+}
+
+/* --- Mobile Fix for Footer Alignment --- */
+@media (max-width: 768px) {
+    .foot-logo-container {
+        justify-content: flex-start; /* Maintains clean left-alignment on smaller mobile views */
+        margin-bottom: 5px;
+    }
+}
+.main-footer { 
+    background: #050505; 
+    border-top: 1px solid #111; 
+    padding: 60px 8% 40px; 
+    margin-top: 60px;
+    width: 100%;
+}
+
+.footer-grid-wrap { 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Brand Column Styles */
+.brand-col {
+    gap: 20px;
+}
+
+.footer-tagline {
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.copyright { 
+    color: #444; 
+    font-size: 13px; 
+    margin-top: auto; /* Pushes copyright to the bottom of the column block */
+}
+
+/* Typography & List Elements */
+.footer-heading {
+    font-family: Arial, sans-serif; 
+    font-size: 16px; 
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.footer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Navigation & Contact Item Resets */
+.footer-list li a, 
+.footer-contact-item, 
+.support-timing {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer-contact-item {
+    cursor: pointer;
+}
+
+.contact-icon {
+    color: #e67e22; /* Accent color for layout highlights */
+    margin-right: 10px;
+    font-size: 16px;
+    display: inline-block;
+    width: 18px;
+    text-align: center;
+}
+
+.support-timing {
+    cursor: default;
+    color: #888;
+}
+
+/* Interactive Hover States */
+.footer-list li a:hover, 
+.footer-contact-item:hover {
+    color: #e67e22;
+    transform: translateX(4px); /* Subtle shift to match list markers in reference image */
+}
+
+/* Social Media Specific Colors */
+.whatsapp-link:hover { color: #0bff5c !important; }
+.insta-link:hover { color: #f198ff !important; }
+.facebook-link:hover { color: #7dafff !important; }
+
+/* Responsive Adaptations */
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 40px 5% 30px;
+    }
+    
+    .footer-grid-wrap {
+        grid-template-columns: 1fr; /* Stack vertically on small mobile displays */
+        gap: 35px;
+        text-align: left;
+    }
+    
+    .footer-list li a:hover, 
+    .footer-contact-item:hover {
+        transform: none; /* Disable shift on touch targets for stability */
+    }
+}
+
+/* --- About Page Copy Styling (Isolated Layout Elements) --- */
+.about-container {
+    padding: 80px 10% 60px;
+    text-align: center;
+    background: #000;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 30px auto 0;
+}
+
+.about-subtitle {
+    color: #e67e22;
+    margin-top: 40px;
+    margin-bottom: 12px;
+}
+
+.about-description {
+    font-size: 18px;
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* --- Interactive Registration Split Panels (parent.html) --- */
+.split-screen {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+    padding-top: 40px;
+}
+
+.info-panel {
+    padding: 60px 24px;
+    background: #000;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.brand-logo-small {
+    height: 120px;
+    width: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+form input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 16px;
+    border: 1px solid #333;
+    background: #111;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+form input:focus {
+    border-color: #e67e22;
+    outline: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #e67e22;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: opacity 0.2s;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}
+
+.back-link {
+    color: #3498db;
+    text-decoration: underline;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: #e67e22;
+}
+
+/* --- Breakpoint Media Matrix --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 5%;
+        width: 220px;
+        background: #111;
+        border: 1px solid #222;
+        border-radius: 12px;
+        padding: 10px 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 14px 20px;
+        border-bottom: 1px solid #222;
+        text-align: center;
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .split-screen {
+        grid-template-columns: 1fr;
+    }
+
+    .info-image {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .split-screen {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .info-image {
+        display: block;
+        background: #111;
+    }
+
+    .info-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .footer-wrap {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+/* --- Detailed Services View Layouts --- */
+.services-detail-container {
+    padding: 80px 10% 60px;
+    background: #000;
+}
+.services-intro-text {
+    color: #aaa;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-bottom: 50px;
+}
+.services-detailed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1000px;
+}
+.service-detail-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 35px;
+    border-radius: 16px;
+    transition: border-color 0.3s;
+}
+.service-detail-card:hover {
+    border-color: #e67e22;
+}
+.service-card-title {
+    color: #e67e22;
+    margin-bottom: 15px;
+}
+.service-detail-description {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+.service-feature-points {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.service-feature-points li {
+    color: #ccc;
+    font-size: 15px;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.5;
+}
+.service-feature-points li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #e67e22;
+    font-weight: bold;
+}
+.services-action-footer {
+    margin-top: 50px;
+    text-align: left;
+}
+
+/* --- Dedicated Registration Guide Stylesheet (join.html) --- */
+
+/* Container Layout */
+.join-guide-container {
+    padding: 80px 10% 60px;
+    background-color: #000;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.join-intro-text {
+    color: #aaa;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-bottom: 50px;
+}
+
+/* Two-Column Grid Setup */
+.join-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* Onboarding Target Cards */
+.join-guide-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 45px 35px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
+}
+
+.join-guide-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Isolated Card Themes to Match Button Accents */
+.parent-card-theme:hover { 
+    border-color: #ffa600; 
+}
+.rider-card-theme:hover { 
+    border-color: #fdffb9; 
+}
+
+/* Typography Hierarchy */
+.guide-card-title {
+    margin-bottom: 12px;
+}
+
+.guide-subtitle {
+    color: #888;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 35px;
+}
+
+/* Stepper List Elements */
+.registration-steps-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 45px;
+}
+
+.registration-steps-list li {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+/* Minimal Vector Step Badges */
+.step-number {
+    background: #1a1a1a;
+    color: #e67e22; /* Primary Theme Accent */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid #2c2c2c;
+}
+
+.step-text-content {
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.step-text-content strong {
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+/* Action Trigger Elements */
+.guide-action-block {
+    margin-top: auto;
+    width: 100%;
+}
+
+.guide-action-block .btn {
+    width: 100%;
+    display: block;
+    text-shadow: none;
+}
+
+.join-navigation-footer {
+    margin-top: 50px;
+    text-align: left;
+}
+
+/* --- Responsive Adaptations --- */
+@media (max-width: 768px) {
+    .join-guide-container {
+        padding: 60px 6% 40px;
+    }
+    
+    .join-intro-text {
+        font-size: 16px;
+        margin-bottom: 35px;
+    }
+    
+    .join-grid-layout {
+        grid-template-columns: 1fr; /* Stacks vertically perfectly on touch screens */
+        gap: 30px;
+    }
+    
+    .join-guide-card {
+        padding: 35px 25px;
+    }
+    
+    .join-guide-card:hover {
+        transform: none; /* Disables displacement transitions for UI stability on mobile browsers */
+    }
+}
+
+/* --- Page Canvas Core Wrapper --- */
+.terms-container {
+    max-width: 900px;
+    margin: 40px auto 80px;
+    padding: 0 24px;
+    background-color: #000;
+}
+
+.last-updated {
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.terms-intro {
+    color: #ccc;
+    font-size: 17px;
+    margin-bottom: 40px;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.7;
+}
+
+/* --- Document Content Section Cards --- */
+.terms-section {
+    background: #111;
+    border: 1px solid #222;
+    padding: 35px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.terms-section:hover {
+    border-color: #e67e22; /* Matches signature branding color */
+    transform: translateY(-2px);
+}
+
+.section-title {
+    color: #e67e22;
+    font-size: 20px;
+    margin-bottom: 18px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.terms-section p {
+    color: #ccc;
+    font-size: 15px;
+    margin-bottom: 15px;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.6;
+}
+
+/* --- Lists Inside Terms Panels --- */
+.terms-section ul, 
+.terms-section ol {
+    padding-left: 24px;
+    margin-bottom: 15px;
+}
+
+.terms-section li {
+    color: #ccc;
+    font-size: 15px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.terms-section strong {
+    color: #fff;
+}
+
+/* --- Navigation & Direct Redirection Links --- */
+.terms-footer-nav {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.back-link {
+    color: #3498db;
+    text-decoration: underline;
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #e67e22;
+}
+
+@media (max-width: 768px) {
+    .terms-container {
+        margin: 20px auto 60px;
+        padding: 0 16px;
+    }
+    
+    .terms-section {
+        padding: 24px 20px;
+    }
+    
+    .terms-section:hover {
+        transform: none; /* Disables displacement transitions for UI stability on mobile browsers */
+    }
+    
+    .terms-intro {
+        font-size: 15px;
+        text-align: left;
+    }
+    
+    .terms-section p {
+        text-align: left;
+    }
+}
